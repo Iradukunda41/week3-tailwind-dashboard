@@ -2,12 +2,223 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+     <link rel="stylesheet" href="dist/output.css" />
+     <title>Mobi Pay Dashboard</title>
 </head>
 
-<body>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+     <!-- Checkbox = mobile sidebar open/closed (no JavaScript) -->
+     <input type="checkbox" id="nav-toggle" class="peer sr-only" />
+     <label for="nav-toggle" class="fixed inset-0 z-30 hidden bg-black/40 peer-checked:max-lg:block"
+          aria-label="Close menu"></label>
+
+     <!-- Sidebar: hidden on mobile, always visible from lg: -->
+     <aside
+          class="fixed inset-y-0 left-0 z-40 w-64 -translate-x-full border-r border-slate-200 bg-white p-4 transition-transform peer-checked:translate-x-0 lg:translate-x-0">
+          <a href="#" class="mb-6 block px-3 py-2 text-xl font-semibold text-brand-700">Mobi<span
+                    class="text-slate-800">Pay</span></a>
+          <nav class="space-y-1" aria-label="Sidebar">
+               <a href="#" class="nav-link bg-brand-50 font-medium text-brand-700">🏠 Overview</a>
+               <a href="#transactions" class="nav-link">💸 Transactions</a>
+               <a href="#activity" class="nav-link">📈 Activity</a>
+               <a href="#add-user" class="nav-link">👥 Users</a>
+               <a href="#" class="nav-link">⚙️ Settings</a>
+          </nav>
+     </aside>
+
+     <div class="lg:pl-64">
+
+          <!-- Top bar -->
+          <header
+               class="sticky top-0 z-20 flex items-center gap-3 border-b border-slate-200 bg-white px-4 py-3 sm:px-6">
+               <label for="nav-toggle"
+                    class="cursor-pointer rounded-lg px-2 py-1 text-xl transition hover:bg-brand-50 lg:hidden"
+                    aria-label="Open menu">☰</label>
+               <h1 class="text-lg font-semibold">Dashboard</h1>
+               <input type="search" placeholder="Search..." aria-label="Search"
+                    class="input ml-auto hidden max-w-xs sm:block" />
+               <div class="ml-auto flex h-9 w-9 items-center justify-center rounded-full bg-brand-100 text-sm font-semibold text-brand-700 sm:ml-0"
+                    aria-label="User avatar">AD</div>
+          </header>
+
+          <main class="space-y-6 p-4 sm:p-6">
+
+               <!-- Stat cards: 1 col, md: 2 cols, xl: 4 cols -->
+               <section class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4" aria-label="Key numbers">
+                    <article class="card">
+                         <p class="text-sm text-slate-500">Total Users</p>
+                         <p class="mt-1 text-2xl font-semibold">12,480</p>
+                         <p class="text-xs text-brand-600">▲ 4.2% this week</p>
+                    </article>
+                    <article class="card">
+                         <p class="text-sm text-slate-500">Wallet Volume</p>
+                         <p class="mt-1 text-2xl font-semibold">RWF 84.2M</p>
+                         <p class="text-xs text-brand-600">▲ 8.1% this week</p>
+                    </article>
+                    <article class="card">
+                         <p class="text-sm text-slate-500">Transactions</p>
+                         <p class="mt-1 text-2xl font-semibold">3,942</p>
+                         <p class="text-xs text-red-600">▼ 1.3% this week</p>
+                    </article>
+                    <article class="card">
+                         <p class="text-sm text-slate-500">Growth</p>
+                         <p class="mt-1 text-2xl font-semibold">+12.5%</p>
+                         <p class="text-xs text-brand-600">▲ vs last month</p>
+                    </article>
+               </section>
+
+               <!-- Data table: scrolls sideways on small screens -->
+               <section id="transactions" class="card scroll-mt-20">
+                    <h2 class="mb-4 font-semibold">Recent transactions</h2>
+                    <div class="overflow-x-auto">
+                         <table class="w-full min-w-[640px] text-left text-sm">
+                              <thead class="border-b border-slate-200 text-slate-500">
+                                   <tr>
+                                        <th class="py-2 pr-4">ID</th>
+                                        <th class="py-2 pr-4">Customer</th>
+                                        <th class="py-2 pr-4">Type</th>
+                                        <th class="py-2 pr-4">Amount</th>
+                                        <th class="py-2 pr-4">Status</th>
+                                        <th class="py-2">Date</th>
+                                   </tr>
+                              </thead>
+                              <tbody class="divide-y divide-slate-100">
+                                   <tr class="transition hover:bg-brand-50">
+                                        <td class="py-3 pr-4">TX-1041</td>
+                                        <td class="pr-4">Uwase Aline</td>
+                                        <td class="pr-4">Transfer</td>
+                                        <td class="pr-4">RWF 25,000</td>
+                                        <td class="pr-4"><span class="badge bg-emerald-100 text-emerald-700">Paid</span>
+                                        </td>
+                                        <td>11 Oct</td>
+                                   </tr>
+                                   <tr class="transition hover:bg-brand-50">
+                                        <td class="py-3 pr-4">TX-1042</td>
+                                        <td class="pr-4">Mugisha Eric</td>
+                                        <td class="pr-4">Airtime</td>
+                                        <td class="pr-4">RWF 2,000</td>
+                                        <td class="pr-4"><span class="badge bg-amber-100 text-amber-700">Pending</span>
+                                        </td>
+                                        <td>11 Oct</td>
+                                   </tr>
+                                   <tr class="transition hover:bg-brand-50">
+                                        <td class="py-3 pr-4">TX-1043</td>
+                                        <td class="pr-4">Ishimwe Grace</td>
+                                        <td class="pr-4">Bill</td>
+                                        <td class="pr-4">RWF 18,500</td>
+                                        <td class="pr-4"><span class="badge bg-emerald-100 text-emerald-700">Paid</span>
+                                        </td>
+                                        <td>10 Oct</td>
+                                   </tr>
+                                   <tr class="transition hover:bg-brand-50">
+                                        <td class="py-3 pr-4">TX-1044</td>
+                                        <td class="pr-4">Niyonzima Jean</td>
+                                        <td class="pr-4">Merchant</td>
+                                        <td class="pr-4">RWF 74,000</td>
+                                        <td class="pr-4"><span class="badge bg-red-100 text-red-700">Failed</span></td>
+                                        <td>10 Oct</td>
+                                   </tr>
+                                   <tr class="transition hover:bg-brand-50">
+                                        <td class="py-3 pr-4">TX-1045</td>
+                                        <td class="pr-4">Mukamana Alice</td>
+                                        <td class="pr-4">Transfer</td>
+                                        <td class="pr-4">RWF 10,000</td>
+                                        <td class="pr-4"><span class="badge bg-emerald-100 text-emerald-700">Paid</span>
+                                        </td>
+                                        <td>09 Oct</td>
+                                   </tr>
+                                   <tr class="transition hover:bg-brand-50">
+                                        <td class="py-3 pr-4">TX-1046</td>
+                                        <td class="pr-4">Habimana Patrick</td>
+                                        <td class="pr-4">Airtime</td>
+                                        <td class="pr-4">RWF 5,000</td>
+                                        <td class="pr-4"><span class="badge bg-amber-100 text-amber-700">Pending</span>
+                                        </td>
+                                        <td>09 Oct</td>
+                                   </tr>
+                              </tbody>
+                         </table>
+                    </div>
+               </section>
+
+               <!-- Two panels -->
+               <section id="activity" class="grid scroll-mt-20 gap-4 lg:grid-cols-2">
+                    <div class="card">
+                         <h2 class="mb-4 font-semibold">Recent activity</h2>
+                         <ul class="space-y-3 text-sm">
+                              <li class="flex justify-between"><span>New agent registered</span><span
+                                        class="text-slate-400">2 min ago</span></li>
+                              <li class="flex justify-between"><span>Large transfer flagged</span><span
+                                        class="text-slate-400">18 min ago</span></li>
+                              <li class="flex justify-between"><span>Bill payment batch completed</span><span
+                                        class="text-slate-400">1 h ago</span></li>
+                              <li class="flex justify-between"><span>Merchant account approved</span><span
+                                        class="text-slate-400">3 h ago</span></li>
+                         </ul>
+                    </div>
+                    <div class="card">
+                         <h2 class="mb-4 font-semibold">Top services</h2>
+                         <ul class="space-y-4 text-sm">
+                              <li>
+                                   <div class="mb-1 flex justify-between"><span>Transfers</span><span>72%</span></div>
+                                   <div class="h-2 rounded-full bg-slate-100">
+                                        <div class="h-2 w-[72%] rounded-full bg-brand-500"></div>
+                                   </div>
+                              </li>
+                              <li>
+                                   <div class="mb-1 flex justify-between"><span>Airtime</span><span>54%</span></div>
+                                   <div class="h-2 rounded-full bg-slate-100">
+                                        <div class="h-2 w-[54%] rounded-full bg-brand-500"></div>
+                                   </div>
+                              </li>
+                              <li>
+                                   <div class="mb-1 flex justify-between"><span>Bill payments</span><span>38%</span>
+                                   </div>
+                                   <div class="h-2 rounded-full bg-slate-100">
+                                        <div class="h-2 w-[38%] rounded-full bg-brand-500"></div>
+                                   </div>
+                              </li>
+                              <li>
+                                   <div class="mb-1 flex justify-between"><span>Merchant pay</span><span>21%</span>
+                                   </div>
+                                   <div class="h-2 rounded-full bg-slate-100">
+                                        <div class="h-2 w-[21%] rounded-full bg-brand-500"></div>
+                                   </div>
+                              </li>
+                         </ul>
+                    </div>
+               </section>
+
+               <!-- Form panel -->
+               <section id="add-user" class="card scroll-mt-20">
+                    <h2 class="mb-4 font-semibold">Add new user</h2>
+                    <form class="grid gap-4 md:grid-cols-3">
+                         <div><label for="name" class="mb-1 block text-sm font-medium">Full name</label><input id="name"
+                                   type="text" class="input" placeholder="e.g. Uwase Aline" /></div>
+                         <div><label for="phone" class="mb-1 block text-sm font-medium">Phone number</label><input
+                                   id="phone" type="tel" class="input" placeholder="07XXXXXXXX" /></div>
+                         <div><label for="role" class="mb-1 block text-sm font-medium">Role</label>
+                              <select id="role" class="input">
+                                   <option>Customer</option>
+                                   <option>Agent</option>
+                                   <option>Merchant</option>
+                              </select>
+                         </div>
+                         <div class="flex gap-3 md:col-span-3">
+                              <button type="submit" class="btn-primary">Save user</button>
+                              <button type="reset" class="btn-secondary">Cancel</button>
+                         </div>
+                    </form>
+               </section>
+
+          </main>
+     </div>
 
 </body>
 
