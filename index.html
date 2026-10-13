@@ -13,7 +13,46 @@
 
 <body class="bg-slate-50 font-sans text-slate-800">
 
-     <!-- Checkbox = mobile sidebar open/closed (no JavaScript) -->
+     <!-- SVG icon sprite (Lucide-style outline icons) -->
+     <svg width="0" height="0" aria-hidden="true" class="absolute h-0 w-0">
+          <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+               <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+               <polyline points="9 22 9 12 15 12 15 22" />
+          </symbol>
+          <symbol id="i-transfer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+               <path d="M8 3 4 7l4 4" />
+               <path d="M4 7h16" />
+               <path d="m16 21 4-4-4-4" />
+               <path d="M20 17H4" />
+          </symbol>
+          <symbol id="i-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+               <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          </symbol>
+          <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+               <circle cx="9" cy="7" r="4" />
+               <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+               <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </symbol>
+          <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+               <path
+                    d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+               <circle cx="12" cy="12" r="3" />
+          </symbol>
+          <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+               <line x1="4" x2="20" y1="6" y2="6" />
+               <line x1="4" x2="20" y1="12" y2="12" />
+               <line x1="4" x2="20" y1="18" y2="18" />
+          </symbol>
+     </svg>
+
+     <!-- Checkbox = mobile sidebar open/closed -->
      <input type="checkbox" id="nav-toggle" class="peer sr-only" />
      <label for="nav-toggle" class="fixed inset-0 z-30 hidden bg-black/40 peer-checked:max-lg:block"
           aria-label="Close menu"></label>
@@ -24,11 +63,25 @@
           <a href="#" class="mb-6 block px-3 py-2 text-xl font-semibold text-brand-700">Mobi<span
                     class="text-slate-800">Pay</span></a>
           <nav class="space-y-1" aria-label="Sidebar">
-               <a href="#" class="nav-link bg-brand-50 font-medium text-brand-700">🏠 Overview</a>
-               <a href="#transactions" class="nav-link">💸 Transactions</a>
-               <a href="#activity" class="nav-link">📈 Activity</a>
-               <a href="#add-user" class="nav-link">👥 Users</a>
-               <a href="#" class="nav-link">⚙️ Settings</a>
+               <a href="#" class="nav-link bg-brand-50 font-medium text-brand-700"><svg width="16" height="16"
+                         class="h-4 w-4 shrink-0" aria-hidden="true">
+                         <use href="#i-home" />
+                    </svg> Overview</a>
+               <a href="#transactions" class="nav-link"><svg width="16" height="16" class="h-4 w-4 shrink-0"
+                         aria-hidden="true">
+                         <use href="#i-transfer" />
+                    </svg> Transactions</a>
+               <a href="#activity" class="nav-link"><svg width="16" height="16" class="h-4 w-4 shrink-0"
+                         aria-hidden="true">
+                         <use href="#i-activity" />
+                    </svg> Activity</a>
+               <a href="#add-user" class="nav-link"><svg width="16" height="16" class="h-4 w-4 shrink-0"
+                         aria-hidden="true">
+                         <use href="#i-users" />
+                    </svg> Users</a>
+               <a href="#" class="nav-link"><svg width="16" height="16" class="h-4 w-4 shrink-0" aria-hidden="true">
+                         <use href="#i-settings" />
+                    </svg> Settings</a>
           </nav>
      </aside>
 
@@ -37,9 +90,10 @@
           <!-- Top bar -->
           <header
                class="sticky top-0 z-20 flex items-center gap-3 border-b border-slate-200 bg-white px-4 py-3 sm:px-6">
-               <label for="nav-toggle"
-                    class="cursor-pointer rounded-lg px-2 py-1 text-xl transition hover:bg-brand-50 lg:hidden"
-                    aria-label="Open menu">☰</label>
+               <label for="nav-toggle" class="cursor-pointer rounded-lg p-2 transition hover:bg-brand-50 lg:hidden"
+                    aria-label="Open menu"><svg width="20" height="20" class="h-5 w-5 shrink-0" aria-hidden="true">
+                         <use href="#i-menu" />
+                    </svg></label>
                <h1 class="text-lg font-semibold">Dashboard</h1>
                <input type="search" placeholder="Search..." aria-label="Search"
                     class="input ml-auto hidden max-w-xs sm:block" />
@@ -165,30 +219,40 @@
                     <div class="card">
                          <h2 class="mb-4 font-semibold">Top services</h2>
                          <ul class="space-y-4 text-sm">
-                              <li>
-                                   <div class="mb-1 flex justify-between"><span>Transfers</span><span>72%</span></div>
+                              <li style="--p:72" class="[counter-reset:p_var(--p)]">
+                                   <div class="mb-1 flex justify-between"><span>Transfers</span><span
+                                             class="after:content-[counter(p)'%']"></span></div>
                                    <div class="h-2 rounded-full bg-slate-100">
-                                        <div class="h-2 w-[72%] rounded-full bg-brand-500"></div>
+                                        <div
+                                             class="h-2 w-[calc(var(--p)*1%)] rounded-full bg-brand-500 transition-all duration-500">
+                                        </div>
                                    </div>
                               </li>
-                              <li>
-                                   <div class="mb-1 flex justify-between"><span>Airtime</span><span>54%</span></div>
+                              <li style="--p:54" class="[counter-reset:p_var(--p)]">
+                                   <div class="mb-1 flex justify-between"><span>Airtime</span><span
+                                             class="after:content-[counter(p)'%']"></span></div>
                                    <div class="h-2 rounded-full bg-slate-100">
-                                        <div class="h-2 w-[54%] rounded-full bg-brand-500"></div>
+                                        <div
+                                             class="h-2 w-[calc(var(--p)*1%)] rounded-full bg-brand-500 transition-all duration-500">
+                                        </div>
                                    </div>
                               </li>
-                              <li>
-                                   <div class="mb-1 flex justify-between"><span>Bill payments</span><span>38%</span>
-                                   </div>
+                              <li style="--p:38" class="[counter-reset:p_var(--p)]">
+                                   <div class="mb-1 flex justify-between"><span>Bill payments</span><span
+                                             class="after:content-[counter(p)'%']"></span></div>
                                    <div class="h-2 rounded-full bg-slate-100">
-                                        <div class="h-2 w-[38%] rounded-full bg-brand-500"></div>
+                                        <div
+                                             class="h-2 w-[calc(var(--p)*1%)] rounded-full bg-brand-500 transition-all duration-500">
+                                        </div>
                                    </div>
                               </li>
-                              <li>
-                                   <div class="mb-1 flex justify-between"><span>Merchant pay</span><span>21%</span>
-                                   </div>
+                              <li style="--p:21" class="[counter-reset:p_var(--p)]">
+                                   <div class="mb-1 flex justify-between"><span>Merchant pay</span><span
+                                             class="after:content-[counter(p)'%']"></span></div>
                                    <div class="h-2 rounded-full bg-slate-100">
-                                        <div class="h-2 w-[21%] rounded-full bg-brand-500"></div>
+                                        <div
+                                             class="h-2 w-[calc(var(--p)*1%)] rounded-full bg-brand-500 transition-all duration-500">
+                                        </div>
                                    </div>
                               </li>
                          </ul>
@@ -219,6 +283,7 @@
 
           </main>
      </div>
+
 
 </body>
 
